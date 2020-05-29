@@ -1,0 +1,35 @@
+<h2>Employee Records</h2>
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> CasecommentId </mat-header-cell>
+                <mat-cell *matCellDef="let ecase"> {{ecase.id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="productName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ProductName </mat-header-cell>
+            <mat-cell *matCellDef="let ecase"> {{ecase.productName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="casecommentTime">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Time </mat-header-cell>
+            <mat-cell *matCellDef="let ecase"> {{ecase.casecommentTime | date: 'MM/dd/yy hh:mm a'}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="caseComment">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Comment </mat-header-cell>
+            <mat-cell *matCellDef="let ecase"> {{ecase.caseComment}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="casesSummary">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> CasesSummary </mat-header-cell>
+            <mat-cell *matCellDef="let ecase"> {{ecase.casesSummary}} </mat-cell>
+        </ng-container>
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+</div>

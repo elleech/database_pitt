@@ -1,0 +1,74 @@
+<mat-toolbar>
+    <span class="center">Edit Customer</span>
+</mat-toolbar>
+
+<form [formGroup]="customerForm" class="normal-form" (submit)="editCustomer()">
+    <mat-grid-list cols="4" rowHeight="175px">
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <input type="hidden" formControlName="id">
+
+                <mat-form-field>
+                    <input formControlName="firstname" matInput placeholder="Firstname">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="lastname" matInput placeholder="Lastname">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="email" matInput placeholder="Email">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="address" matInput placeholder="Address">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="phone" matInput placeholder="Phone">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field>
+                    <input formControlName="company" matInput placeholder="Company">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="grossannualincome" matInput placeholder="Income">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <div>
+                    <button mat-raised-button color="primary" type="submit"
+                        [disabled]="customerForm.invalid">Submit</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</form>

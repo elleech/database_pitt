@@ -1,0 +1,80 @@
+<h1>Cases</h1>
+<hr>
+<div class="mat-elevation-z8">
+    <mat-form-field class="search-form-field" floatLabel="never" style="width:100% !important">
+        <input matInput [(ngModel)]="searchKey" autocomplete="off" (keyup)="applyFliter()">
+        <button mat-button matSuffix mat-icon-button arial-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+<hr>
+
+<button mat-raised-button color="primary" (click)="onCreate()" style="float:right;height: 50px; width:100%;">
+    <mat-icon>add</mat-icon>
+    Create
+</button>
+<hr>
+
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> CId </mat-header-cell>
+            <mat-cell *matCellDef="let cases"> {{cases.id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="productName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ProductName </mat-header-cell>
+            <mat-cell *matCellDef="let cases"> {{cases.productName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="employeeName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> EmployeeName </mat-header-cell>
+            <mat-cell *matCellDef="let cases"> {{cases.employeeName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="customerName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> CustomerName </mat-header-cell>
+            <mat-cell *matCellDef="let cases"> {{cases.customerName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="customerCompany">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> CustomerCompany </mat-header-cell>
+            <mat-cell *matCellDef="let cases"> {{cases.customerCompany}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="summary">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Summary </mat-header-cell>
+            <mat-cell *matCellDef="let cases"> {{cases.summary}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+            <mat-cell *matCellDef="let cases"> {{cases.description}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+            <mat-cell *matCellDef="let cases"> {{cases.status}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+            <mat-cell *matCellDef="let cases">
+                <button mat-icon-button (click)="onDetail(cases)" data-toggle="modal" data-target="#Log">
+                    <mat-icon>details</mat-icon>
+                </button>
+                <button mat-icon-button (click)="onEdit(cases)">
+                    <mat-icon> launch </mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5 , 10, 25, 100]" [pageSize]="10"></mat-paginator>
+</div>

@@ -1,0 +1,44 @@
+<mat-toolbar>
+    <span class="center">Edit Case</span>
+</mat-toolbar>
+
+<form [formGroup]="editCaseForm" class="normal-form" (submit)="editCase()">
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <mat-form-field>
+                    <input formControlName="description" matInput placeholder="Description">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+                <mat-form-field>
+                    <input formControlName="summary" matInput placeholder="Summary">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+                <mat-form-field>
+                    <input formControlName="status" matInput placeholder="Status">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+                <div>
+                    <button mat-raised-button color="primary" type="submit"
+                        [disabled]="editCaseForm.invalid">Submit</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

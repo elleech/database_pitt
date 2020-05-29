@@ -1,0 +1,50 @@
+<mat-toolbar>
+    <span class="center">New Resolution</span>
+</mat-toolbar>
+
+<form [formGroup]="resolutionForm" class="normal-form" (submit)="addResolution()">
+    <mat-grid-list cols="3" rowHeight="200px">
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="productId" matInput placeholder="ProductId">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="name" matInput placeholder="Name">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="description" matInput placeholder="Description">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="step" matInput placeholder="Step">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <div>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="resolutionForm.invalid">Submit</button>
+                </div>
+
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

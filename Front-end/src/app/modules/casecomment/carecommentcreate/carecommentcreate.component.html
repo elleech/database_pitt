@@ -1,0 +1,35 @@
+<mat-toolbar>
+    <span class="center">New CaseComment</span>
+</mat-toolbar>
+
+<form [formGroup]="caseCommentForm" class="normal-form" (submit)="addCaseComment()">
+    <mat-grid-list cols="2" rowHeight="200px">
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="caseId" matInput placeholder="CaseId">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="comment" matInput placeholder="Comment">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <div>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="caseCommentForm.invalid">Submit</button>
+                </div>
+
+            </div>
+        </mat-grid-tile>
+
+
+    </mat-grid-list>
+</form>

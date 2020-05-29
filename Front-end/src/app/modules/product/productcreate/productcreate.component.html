@@ -1,0 +1,39 @@
+<mat-toolbar>
+    <span class="center">New Product</span>
+</mat-toolbar>
+
+<form [formGroup]="productForm" class="normal-form" (submit)="addProduct()">
+    <mat-grid-list cols="2" rowHeight="175px">
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="productname" matInput placeholder="Productname">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="description" matInput placeholder="Description">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="price" matInput placeholder="Price">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <div>
+                    <button mat-raised-button color="primary" type="submit"
+                        [disabled]="productForm.invalid">Submit</button>
+                </div>
+
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

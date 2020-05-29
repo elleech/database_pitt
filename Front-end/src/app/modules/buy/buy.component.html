@@ -1,0 +1,65 @@
+<h1>Buy</h1>
+<hr>
+<div class="mat-elevation-z8">
+    <mat-form-field class="search-form-field"  floatLabel="never" style="width:100% !important" >
+        <input matInput [(ngModel)]="searchKey"  autocomplete="off" (keyup)="applyFliter()">
+        <button mat-button matSuffix mat-icon-button arial-label = "Clear" *ngIf="searchKey" (click) = "onSearchClear()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+<hr>
+
+<button mat-raised-button color="primary" (click)="onCreate()" style="float:right;height: 50px; width:100%;">
+    <mat-icon>add</mat-icon>
+    Buy
+</button> 
+<hr>
+
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> BId </mat-header-cell>
+            <mat-cell *matCellDef="let buy"> {{buy.id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="productName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ProductName </mat-header-cell>
+            <mat-cell *matCellDef="let buy"> {{buy.productName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </mat-header-cell>
+            <mat-cell *matCellDef="let buy"> {{buy.quantity}} </mat-cell>
+        </ng-container> 
+
+        <ng-container matColumnDef="totalPrice">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> TotalPrice </mat-header-cell>
+            <mat-cell *matCellDef="let buy"> {{buy.totalPrice | currency}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="payDate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> PayDate </mat-header-cell>
+            <mat-cell *matCellDef="let buy"> {{buy.payDate | date: 'MM/dd/yy hh:mm a'}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="customerName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> CustomerName </mat-header-cell>
+            <mat-cell *matCellDef="let buy"> {{buy.customerName}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="salespersonName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> SalespersonName </mat-header-cell>
+            <mat-cell *matCellDef="let buy"> {{buy.salespersonName}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5 , 10, 25, 100]" [pageSize]="10"></mat-paginator>
+</div>

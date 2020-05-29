@@ -1,0 +1,58 @@
+<mat-toolbar>
+    <span class="center">New Case</span>
+</mat-toolbar>
+
+<form [formGroup]="caseForm" class="normal-form" (submit)="addCase()">
+    <mat-grid-list cols="3" rowHeight="200px">
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="buyId" matInput placeholder="BuyId">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="employeeId" matInput placeholder="EmployeeId">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="summary" matInput placeholder="Summary">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="description" matInput placeholder="Description">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="status" matInput placeholder="Status">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <div>
+                    <button mat-raised-button color="primary" type="submit"
+                        [disabled]="caseForm.invalid">Submit</button>
+                </div>
+
+            </div>
+        </mat-grid-tile>
+
+
+    </mat-grid-list>
+</form>
