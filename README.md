@@ -1,8 +1,8 @@
 ## Pitt Database Management (INFSCI 2710) final project
 
-- **Requirement:**
+### Requirement:
 
-  You will create a catalog of products (5-10) that your company provides. Your system must maintain a record of customers and the products that each customer owns. As each product is purchased by a customer, the database should be updated to reflect what they own. You must keep track of customers, including their personal information, and purchase history. You should keep track of employees that work at your company. These employees will be the users of your software. They will open cases to support your products and see them through to resolutions.
+You will create a catalog of products (5-10) that your company provides. Your system must maintain a record of customers and the products that each customer owns. As each product is purchased by a customer, the database should be updated to reflect what they own. You must keep track of customers, including their personal information, and purchase history. You should keep track of employees that work at your company. These employees will be the users of your software. They will open cases to support your products and see them through to resolutions.
 
 # Database System for Customer Support
 
